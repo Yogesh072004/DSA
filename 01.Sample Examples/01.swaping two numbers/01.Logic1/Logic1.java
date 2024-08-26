@@ -17,14 +17,15 @@ public class Logic1
 {
 	public static void main(String[] args) {
 	    Logic_1 l=new Logic_1();
-	    Scanner sc=new Scanner(System.in);
-	    int a;
-	    int b;
-		System.out.println("Enter a value:");
-		a=sc.nextInt();
-		System.out.println("Enter b value:");
-		b=sc.nextInt();
-		l.swap(a,b);
+	    try (Scanner sc = new Scanner(System.in)) {
+			int a;
+			int b;
+			System.out.println("Enter a value:");
+			a=sc.nextInt();
+			System.out.println("Enter b value:");
+			b=sc.nextInt();
+			l.swap(a,b);
+		}
 		
 		
 	}
