@@ -1,7 +1,7 @@
 public class QuickSort {
     // Main method to test the algorithm
     public static void main(String[] args) {
-        int a[] = {10, 5, 88, 2, 8, 26, 55};
+        int a[] = { 10, 5, 88, 2, 8, 26, 55 };
         quicksort(a, 0, a.length - 1);
         // Print the sorted array
         for (int num : a) {
@@ -21,15 +21,14 @@ public class QuickSort {
     // Partition function
     private static int partition(int[] a, int lb, int up) {
         int pivot = a[lb];
-        int start = lb;
+        int start = lb + 1;
         int end = up;
-        int temp1;
 
-        while (start < end) {
-            while (a[start] <= pivot) {
+        while (start <= end) {
+            while (  start <= end && a[start] <= pivot) {
                 start++;
             }
-            while (a[end] > pivot) {
+            while (  start <= end && a[end] > pivot) {
                 end--;
             }
             if (start < end) {
@@ -39,9 +38,8 @@ public class QuickSort {
             }
         }
 
-         temp1 = a[end];
         a[lb] = a[end];
-        a[end] = temp1;
+        a[end] = pivot;
 
         return end;
     }
