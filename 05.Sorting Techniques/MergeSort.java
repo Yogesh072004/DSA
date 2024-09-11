@@ -23,9 +23,9 @@ public class MergeSort {
     }
 
     private static void merge(int[] a, int left, int mid, int right) {
-        int n=a.length;
+        
        int i,j,k;
-       int b[]=new int[n];
+       int b[]={};
        i=left;
        j=mid+1;
        k=right;
