@@ -3,7 +3,7 @@ public class MergeSort {
         int a[]={54,6,8,35,7,68,29};
         mergesort(a,0,a.length-1);
         for(int num:a) {
-            System.out.println(num+" ");
+            System.out.print(num+" ");
         }
 
     }
@@ -25,10 +25,10 @@ public class MergeSort {
     private static void merge(int[] a, int left, int mid, int right) {
         
        int i,j,k;
-       int b[]={};
+       int b[]=new int[right-left+1];
        i=left;
        j=mid+1;
-       k=right;
+       k=0;
        while (i<=mid && j<=right) {
         if(a[i]<=a[j]){
             b[k++]=a[i++];
@@ -42,8 +42,8 @@ public class MergeSort {
        while ((j<=right)) {
         b[k++]=a[j++];
        }
-       for(i=left;i<=right;i++){
-        a[i]=b[i];
+       for(i=left,k=0;i<=right;i++,k++){
+        a[i]=b[k];
        }
 
     }
