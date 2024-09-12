@@ -38,6 +38,7 @@ class SLL{
     void deleteFirst(){
         if(head==null) return;
         head=head.next;
+        size--;
 
     }
     void deleteLast(){
@@ -49,6 +50,7 @@ class SLL{
             temp=temp.next;
         }
         prev.next=null;
+        size--;
 
     }
     void display(){
@@ -93,7 +95,35 @@ class SLL{
             i++;
         }
         temp.next=temp.next.next;
+        size--;
     
+    }
+    void sortedInsert(int data){
+        Node newNode=new Node(data);
+        Node currNode=head;
+        if(currNode==null||currNode.data>data){
+            newNode.next=head;
+            head=newNode;
+            return;
+        }
+        while (currNode.next!=null && currNode.next.data<data) {
+            currNode=currNode.next;
+        }
+        newNode.next=currNode.next;
+        currNode.next=newNode;
+
+    }
+    void reverse(){
+        Node prev=null;
+        Node curr=head;
+        Node nextnode=head;
+        while (nextnode!=null) {
+            nextnode=nextnode.next;
+            curr.next=prev;
+            prev=curr;
+            curr=nextnode;
+        }
+        head=prev;
     }
 }
 public class SLLop {
@@ -107,13 +137,22 @@ public class SLLop {
         list.deleteFirst();
         list.deleteFirst();
         list.deleteLast();
-        list.addFirst(1);
+        list.addFirst(10);
         list.addLast(100);
         list.addPos(23, 3);
         list.addPos(2, 2);
         list.addPos(24,5 );
         list.deletePos(4);
         list.deletePos(0);
+        list.sortedInsert(1);
+        list.sortedInsert(5);
+        list.sortedInsert(7);
+        list.sortedInsert(101);
+        System.out.println("Before Reversing..");
+        list.display();
+        System.out.println();
+        list.reverse();
+        System.out.println("After Reversing..");
         list.display();
     }
     
